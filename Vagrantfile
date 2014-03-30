@@ -71,7 +71,6 @@ Vagrant.configure("2") do |config|
             id: "core",
             :nfs => true,
             :mount_options => ['nolock,vers=3,udp,noatime']
-            # :mount_options => ['actimeo=2']
 
   # If using VirtualBox
   config.vm.provider :virtualbox do |vb|

@@ -1,0 +1,12 @@
+exclude: [
+    "laravel-cheatsheet.sublime-project",
+    "laravel-cheatsheet.sublime-workspace",
+    ".vagrant",
+    ".gitignore",
+    "README.md",
+    "Vagrantfile"
+]
+url: 192.168.33.20.xip.io
+
+markdown: redcarpet
+pygments: true
