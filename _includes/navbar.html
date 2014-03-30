@@ -1,16 +1,25 @@
     <div class="fixed">
-        <nav class="top-bar">
-            <ul class="title-area">
-                <li class="name"><h1><a href="#">Laravel Cheat Sheet</a></h1></li>
-                <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+        <nav class="top-bar" data-topbar>
+          <ul class="title-area">
+            <li class="name">
+              <h1><a href="#">Laravel Cheat Sheet</a></h1>
+            </li>
+            <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+          </ul>
+
+          <section class="top-bar-section">
+            <!-- Left Nav Section -->
+            <ul class="left">
+                <li class="comments-toggle"><a href="#"><i class="fa fa-comments"></i> Toggle Code Comments</a></li>
+                <li><a href="http://three.laravel.com/"><i class="fa fa-file-text"></i> Laravel 3 Docs</a></li>
+                <li><a href="http://laravel.com/docs"><i class="fa fa-file-text"></i> Laravel 4 Docs</a></li>
             </ul>
-            <section class="top-bar-section">
-                <ul class="left">
-                    <li class="comments-toggle"><a href="#"><i class="icon-comments"></i> Toggle Code Comments</a></li>
-                    <li><a href="https://github.com/Ilyes512/laravel-cheatsheet"><i class="icon-github"></i> Github</a></li>
-                    <li><a href="http://three.laravel.com/"><i class="icon-file-text"></i> Laravel 3 Docs</a></li>
-                    <li><a href="http://laravel.com/docs"><i class="icon-file-text"></i> Laravel 4 Docs</a></li>
-                </ul>
-            </section>
+
+            <!-- Right Nav Section -->
+            <ul class="right">
+                <li><a href="https://github.com/Ilyes512/laravel-cheatsheet"><i class="fa fa-github"></i> Github</a></li>
+            </ul>
+
+          </section>
         </nav>
     </div>

@@ -12,3 +12,5 @@ var $url_elements = $("span.pln:contains('URL')").removeClass('pln').addClass('t
 var $url_elements = $("span.pln:contains('SSH')").removeClass('pln').addClass('typ');
 var $url_elements = $("span.pln:contains('DB')").addClass('typ');
 
+// Initialize Foundation
+$(document).foundation();

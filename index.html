@@ -3,7 +3,7 @@ layout: default
 title: Laraval is awesome
 ---
 
-            <h4><a name="artisan" href="#artisan">Artisan</a> <a href="http://laravel.com/docs/artisan" title="Artisan CLI @ Laravel Docs"><i class="icon-file-text"></i></a></h4>
+            <h4><a name="artisan" href="#artisan">Artisan</a> <a href="http://laravel.com/docs/artisan" title="Artisan CLI @ Laravel Docs"><i class="fa fa-file-text"></i></a></h4>
             <pre class="prettyprint lang-php">
 php artisan --help OR -h
 php artisan --quiet OR -q
@@ -52,7 +52,7 @@ php artisan view:publish [--path[="..."]] package
 php artisan tail [--path[="..."]] [--lines[="..."]] [connection]
             </pre>
 
-            <h4><a name="composer" href="#composer">Composer</a> <a href="http://getcomposer.org/doc/03-cli.md" title="Composer CLI Docs"><i class="icon-file-text"></i></a></h4>
+            <h4><a name="composer" href="#composer">Composer</a> <a href="http://getcomposer.org/doc/03-cli.md" title="Composer CLI Docs"><i class="fa fa-file-text"></i></a></h4>
             <pre class="prettyprint lang-php">
 composer create-project laravel/laravel folder_name
 composer install
@@ -63,7 +63,7 @@ composer self-update
 
 
 
-            <h4><a name="routing" href="#routing">Routing</a> <a href="http://laravel.com/docs/routing" title="Routing @ Laravel Docs"><i class="icon-file-text"></i></a></h4>
+            <h4><a name="routing" href="#routing">Routing</a> <a href="http://laravel.com/docs/routing" title="Routing @ Laravel Docs"><i class="fa fa-file-text"></i></a></h4>
             <pre class="prettyprint lang-php">Route::get('foo', function(){});
 Route::get('foo', 'ControllerName@function');
 Route::controller('foo', 'FooController');
@@ -133,7 +133,7 @@ Route::group(array('prefix' => 'foo'), function(){})
 Route::group(array('domain' => '{sub}.example.com'), function(){});
             </pre>
 
-        <h4><a name="urls" href="#urls">URLs</a> <a href="http://laravel.com/docs/helpers#urls" title="URLs @ Laravel Docs"><i class="icon-file-text"></i></a></h4>
+        <h4><a name="urls" href="#urls">URLs</a> <a href="http://laravel.com/docs/helpers#urls" title="URLs @ Laravel Docs"><i class="fa fa-file-text"></i></a></h4>
             <pre class="prettyprint lang-php">URL::full();
 URL::current();
 URL::previous();
@@ -151,7 +151,7 @@ URL::setGenerator($generator);
             </pre>
 
 
-            <h4><a name="events" href="#events">Events</a> <a href="http://laravel.com/docs/events" title="Events @ Laravel Docs"><i class="icon-file-text"></i></a></h4>
+            <h4><a name="events" href="#events">Events</a> <a href="http://laravel.com/docs/events" title="Events @ Laravel Docs"><i class="fa fa-file-text"></i></a></h4>
             <pre class="prettyprint lang-php">Event::fire('foo.bar', array($bar));
 Event::listen('foo.bar', function($bar){});
 Event::listen('foo.*', function($bar){});
@@ -165,7 +165,7 @@ Event::forget('foo');
 Event::subscribe(new FooEventHandler);
             </pre>
 
-            <h4><a name="db" href="#db">Database</a> <a href="http://laravel.com/docs/queries" title="Query Builder @ Laravel Docs"><i class="icon-file-text"></i></a></h4>
+            <h4><a name="db" href="#db">Database</a> <a href="http://laravel.com/docs/queries" title="Query Builder @ Laravel Docs"><i class="fa fa-file-text"></i></a></h4>
             <pre class="prettyprint lang-php">
 DB::connection('connection_name');
 DB::statement('drop table users');
@@ -240,7 +240,7 @@ DB::table('name')->cacheTags(array('my-first-key','my-second-key'))->remember(5)
 DB::table('name')->select(DB::raw('count(*) as count, column2'))->get();
             </pre>
 
-            <h4><a name="eloquent" href="#eloquent">Eloquent</a> <a href="http://laravel.com/docs/eloquent" title="Eloquent @ Laravel Docs"><i class="icon-file-text"></i></a></h4>
+            <h4><a name="eloquent" href="#eloquent">Eloquent</a> <a href="http://laravel.com/docs/eloquent" title="Eloquent @ Laravel Docs"><i class="fa fa-file-text"></i></a></h4>
             <pre class="prettyprint lang-php">Model::create(array('key' => 'value'));
 // Fill a model with an array of attributes, beware of mass assignment!
 Model::fill($attributes);
@@ -296,7 +296,7 @@ Eloquent::reguard();
             </pre>
 
             <h4>
-                <a name="remote" href="#remote">The Remote Component</a> <a href="http://laravel.com/docs/ssh" title="SSH @ Laravel Docs"><i class="icon-file-text"></i></a>
+                <a name="remote" href="#remote">The Remote Component</a> <a href="http://laravel.com/docs/ssh" title="SSH @ Laravel Docs"><i class="fa fa-file-text"></i></a>
             </h4>
             <h6>Executing Commands</h6>
             <pre class="prettyprint lang-php">SSH::run(array $commands);
@@ -322,7 +322,7 @@ SSH::putString($string, $remotePath);
         </div>
 
         <div class="large-4 columns code-column">
-            <h4><a name="db" href="#db">Schema</a> <a href="http://laravel.com/docs/schema" title="Schema Builder @ Laravel Docs"><i class="icon-file-text"></i></a></h4>
+            <h4><a name="db" href="#db">Schema</a> <a href="http://laravel.com/docs/schema" title="Schema Builder @ Laravel Docs"><i class="fa fa-file-text"></i></a></h4>
             <pre class="prettyprint lang-php">
 Schema::create('table', function($table)
 {
@@ -400,7 +400,7 @@ $table->morphs('parent');
 ->unsigned()
             </pre>
 
-            <h4><a name="input" href="#input">Input</a> <a href="http://laravel.com/docs/requests" title="Input @ Laravel Docs"><i class="icon-file-text"></i></a></h4>
+            <h4><a name="input" href="#input">Input</a> <a href="http://laravel.com/docs/requests" title="Input @ Laravel Docs"><i class="fa fa-file-text"></i></a></h4>
             <pre class="prettyprint lang-php">Input::get('key');
 // Default if the key is missing
 Input::get('key', 'default');
@@ -437,7 +437,7 @@ Input::file('name')->move($destinationPath);
 Input::file('name')->move($destinationPath, $fileName);
             </pre>
 
-            <h4><a name="cache" href="#cache">Cache</a> <a href="http://laravel.com/docs/cache" title="Cache @ Laravel Docs"><i class="icon-file-text"></i></a></h4>
+            <h4><a name="cache" href="#cache">Cache</a> <a href="http://laravel.com/docs/cache" title="Cache @ Laravel Docs"><i class="fa fa-file-text"></i></a></h4>
             <pre class="prettyprint lang-php">Cache::put('key', 'value', $minutes);
 Cache::add('key', 'value', $minutes);
 Cache::forever('key', 'value');
@@ -462,7 +462,7 @@ Cache::section('group')->get('key');
 Cache::section('group')->flush();
             </pre>
 
-            <h4><a name="cookies" href="#cookies">Cookies</a> <a href="http://laravel.com/docs/requests#cookies" title="Cookies @ Laravel Docs"><i class="icon-file-text"></i></a></h4>
+            <h4><a name="cookies" href="#cookies">Cookies</a> <a href="http://laravel.com/docs/requests#cookies" title="Cookies @ Laravel Docs"><i class="fa fa-file-text"></i></a></h4>
             <pre class="prettyprint lang-php">Cookie::get('key');
 // Create a cookie that lasts for ever
 Cookie::forever('key', 'value');
@@ -473,7 +473,7 @@ $response = Response::make('Hello World');
 $response->withCookie(Cookie::make('name', 'value', $minutes));
             </pre>
 
-            <h4><a name="sessions" href="#sessions">Sessions</a> <a href="http://laravel.com/docs/session" title="Session @ Laravel Docs"><i class="icon-file-text"></i></a></h4>
+            <h4><a name="sessions" href="#sessions">Sessions</a> <a href="http://laravel.com/docs/session" title="Session @ Laravel Docs"><i class="fa fa-file-text"></i></a></h4>
             <pre class="prettyprint lang-php">Session::get('key');
 Session::get('key', 'default');
 Session::get('key', function(){ return 'default'; });
@@ -490,7 +490,7 @@ Session::reflash();
 Session::keep(array('key1', 'key2'));
             </pre>
 
-            <h4><a name="requests" href="#requests">Requests</a> <a href="http://laravel.com/docs/requests#request-information" title="Requests @ Laravel Docs"><i class="icon-file-text"></i></a></h4>
+            <h4><a name="requests" href="#requests">Requests</a> <a href="http://laravel.com/docs/requests#request-information" title="Requests @ Laravel Docs"><i class="fa fa-file-text"></i></a></h4>
             <pre class="prettyprint lang-php">Request::path();
 Request::is('foo/*');
 Request::url();
@@ -501,7 +501,7 @@ Request::ajax();
 Request::secure();
             </pre>
 
-            <h4><a name="responses" href="#responses">Responses</a> <a href="http://laravel.com/docs/responses" title="Responses @ Laravel Docs"><i class="icon-file-text"></i></a></h4>
+            <h4><a name="responses" href="#responses">Responses</a> <a href="http://laravel.com/docs/responses" title="Responses @ Laravel Docs"><i class="fa fa-file-text"></i></a></h4>
             <pre class="prettyprint lang-php">return Response::make($contents);
 return Response::make($contents, 200);
 return Response::json(array('key' => 'value'));
@@ -518,7 +518,7 @@ return Response::make($content)
     ->withCookie(Cookie::make('key', 'value'));
             </pre>
 
-            <h4><a name="redirects" href="#redirects">Redirects</a> <a href="http://laravel.com/docs/responses#redirects" title="Redirects @ Laravel Docs"><i class="icon-file-text"></i></a></h4>
+            <h4><a name="redirects" href="#redirects">Redirects</a> <a href="http://laravel.com/docs/responses#redirects" title="Redirects @ Laravel Docs"><i class="fa fa-file-text"></i></a></h4>
             <pre class="prettyprint lang-php">return Redirect::to('foo/bar');
 return Redirect::to('foo/bar')->with('key', 'value');
 return Redirect::to('foo/bar')->withInput(Input::get());
@@ -535,7 +535,7 @@ return Redirect::action('FooController@baz', array('key' => 'value'));
 return Redirect::intended('foo/bar');
             </pre>
 
-            <h4><a name="ioc" href="#ioc">IoC</a> <a href="http://laravel.com/docs/ioc" title="IoC Container @ Laravel Docs"><i class="icon-file-text"></i></a></h4>
+            <h4><a name="ioc" href="#ioc">IoC</a> <a href="http://laravel.com/docs/ioc" title="IoC Container @ Laravel Docs"><i class="fa fa-file-text"></i></a></h4>
             <pre class="prettyprint lang-php">App::bind('foo', function($app){ return new Foo; });
 App::make('foo');
 // If this class exists, it's returned
@@ -548,7 +548,7 @@ App::register('FooServiceProvider');
 App::resolving(function($object){});
             </pre>
 
-            <h4><a name="security" href="#security">Security</a> <a href="http://laravel.com/docs/security" title="Security @ Laravel Docs"><i class="icon-file-text"></i></a></h4>
+            <h4><a name="security" href="#security">Security</a> <a href="http://laravel.com/docs/security" title="Security @ Laravel Docs"><i class="fa fa-file-text"></i></a></h4>
             <h6>Passwords</h6>
             <pre class="prettyprint lang-php">Hash::make('secretpassword');
 Hash::check('secretpassword', $hashedPassword);
@@ -579,7 +579,7 @@ Crypt::setMode('ctr');
 Crypt::setCipher($cipher);
             </pre>
 
-            <h4><a name="mail" href="#mail">Mail</a> <a href="http://laravel.com/docs/mail" title="Mail @ Laravel Docs"><i class="icon-file-text"></i></a></h4>
+            <h4><a name="mail" href="#mail">Mail</a> <a href="http://laravel.com/docs/mail" title="Mail @ Laravel Docs"><i class="fa fa-file-text"></i></a></h4>
             <pre class="prettyprint lang-php">Mail::send('email.view', $data, function($message){});
 Mail::send(array('html.view', 'text.view'), $data, $callback);
 Mail::queue('email.view', $data, function($message){});
@@ -610,7 +610,7 @@ $message->embedData('foo', 'Data Name', $options);
 $message->getSwiftMessage();
             </pre>
 
-            <h4><a name="queues" href="#queues">Queues</a> <a href="http://laravel.com/docs/queues" title="Queues @ Laravel Docs"><i class="icon-file-text"></i></a></h4>
+            <h4><a name="queues" href="#queues">Queues</a> <a href="http://laravel.com/docs/queues" title="Queues @ Laravel Docs"><i class="fa fa-file-text"></i></a></h4>
             <pre class="prettyprint lang-php">Queue::push('SendMail', array('message' => $message));
 Queue::push('SendEmail@send', array('message' => $message));
 Queue::push(function($job) use $id {});
@@ -620,7 +620,7 @@ php artisan queue:listen --timeout=60
 php artisan queue:work
             </pre>
 
-            <h4><a name="validation" href="#validation">Validation</a> <a href="http://laravel.com/docs/validation" title="Validation @ Laravel Docs"><i class="icon-file-text"></i></a></h4>
+            <h4><a name="validation" href="#validation">Validation</a> <a href="http://laravel.com/docs/validation" title="Validation @ Laravel Docs"><i class="fa fa-file-text"></i></a></h4>
             <pre class="prettyprint lang-php">Validator::make(
     array('key' => 'Foo'),
     array('key' => 'required|in:Foo')
@@ -671,7 +671,7 @@ url
 
         </div>
         <div class="large-4 columnsi code-column">
-            <h4><a name="views" href="#views">Views</a> <a href="http://laravel.com/docs/responses#views" title="Views @ Laravel Docs"><i class="icon-file-text"></i></a></h4>
+            <h4><a name="views" href="#views">Views</a> <a href="http://laravel.com/docs/responses#views" title="Views @ Laravel Docs"><i class="fa fa-file-text"></i></a></h4>
             <pre class="prettyprint lang-php">View::make('path/to/view');
 View::make('foo/bar')->with('key', 'value');
 View::make('foo/bar')->withKey('value');
@@ -690,7 +690,7 @@ View::composer('viewname', 'FooComposer');
 View::creator('viewname', function($view){});
             </pre>
 
-            <h4><a name="blade" href="#blade">Blade Templates</a> <a href="http://laravel.com/docs/templates#blade-templating" title="Blade Templating @ Laravel Docs"><i class="icon-file-text"></i></a></h4>
+            <h4><a name="blade" href="#blade">Blade Templates</a> <a href="http://laravel.com/docs/templates#blade-templating" title="Blade Templating @ Laravel Docs"><i class="fa fa-file-text"></i></a></h4>
             <pre class="prettyprint lang-php">@extends('layout.name')
 // Begin a section
 @section('name')
@@ -728,7 +728,7 @@ View::creator('viewname', function($view){});
 @&#123;&#123; This will not be processed by Blade &#125;&#125;
             </pre>
 
-            <h4><a name="forms" href="#forms">Forms</a> <a href="http://laravel.com/docs/html" title="Forms & HTML @ Laravel Docs"><i class="icon-file-text"></i></a></h4>
+            <h4><a name="forms" href="#forms">Forms</a> <a href="http://laravel.com/docs/html" title="Forms & HTML @ Laravel Docs"><i class="fa fa-file-text"></i></a></h4>
             <pre class="prettyprint lang-php">Form::open(array('url' => 'foo/bar', 'method' => 'PUT'));
 Form::open(array('route' => 'foo.bar'));
 Form::open(array('route' => array('foo.bar', $parameter)));
@@ -796,7 +796,7 @@ HTML::attributeElement($key, $value);
 HTML::obfuscate($value);
             </pre>
 
-            <h4><a name="str" href="#str">Strings</a> <a href="http://laravel.com/docs/helpers#strings" title="Strings CLI @ Laravel Docs"><i class="icon-file-text"></i></a></h4>
+            <h4><a name="str" href="#str">Strings</a> <a href="http://laravel.com/docs/helpers#strings" title="Strings CLI @ Laravel Docs"><i class="fa fa-file-text"></i></a></h4>
             <pre class="prettyprint lang-php">// Transliterate a UTF-8 value to ASCII
 Str::ascii($value)
 Str::camel($value)
@@ -825,7 +825,7 @@ Str::studly($value)
 Str::macro($name, $macro)
             </pre>
 
-            <h4><a name="localization" href="#localization">Localization</a> <a href="http://laravel.com/docs/localization" title="Localization @ Laravel Docs"><i class="icon-file-text"></i></a></h4>
+            <h4><a name="localization" href="#localization">Localization</a> <a href="http://laravel.com/docs/localization" title="Localization @ Laravel Docs"><i class="fa fa-file-text"></i></a></h4>
             <pre class="prettyprint lang-php">App::setLocale('en');
 Lang::get('messages.welcome');
 Lang::get('messages.welcome', array('foo' => 'Bar'));
@@ -833,7 +833,7 @@ Lang::has('messages.welcome');
 Lang::choice('messages.apples', 10);
             </pre>
 
-            <h4><a name="files" href="#files">Files</a> <a href="http://laravel.com/api/class-Illuminate.Filesystem.Filesystem.html" title="Filesystem @ Laravel Docs"><i class="icon-file-text"></i></a></h4>
+            <h4><a name="files" href="#files">Files</a> <a href="http://laravel.com/api/class-Illuminate.Filesystem.Filesystem.html" title="Filesystem @ Laravel Docs"><i class="fa fa-file-text"></i></a></h4>
             <pre class="prettyprint lang-php">File::exists('path');
 File::get('path');
 File::getRemote('path');
@@ -866,7 +866,7 @@ File::cleanDirectory('directory');
             </pre>
 
 
-            <h4><a name="helpers" href="#helpers">Helpers</a> <a href="http://laravel.com/docs/helpers" title="Helpers @ Laravel Docs"><i class="icon-file-text"></i></a></h4>
+            <h4><a name="helpers" href="#helpers">Helpers</a> <a href="http://laravel.com/docs/helpers" title="Helpers @ Laravel Docs"><i class="fa fa-file-text"></i></a></h4>
             <h6>Arrays</h6>
             <pre class="prettyprint lang-php">array_add($array, 'key', 'value');
 array_build($array, function(){});
