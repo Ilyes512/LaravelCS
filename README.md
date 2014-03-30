@@ -1,6 +1,8 @@
 ## (The not yet Improved) Laravel Cheat Sheet
 
-This is a Laravel 4 Cheat Sheet. It's based on the original by [JesseObrien](https://github.com/JesseObrien). I plan on making it (more) usefull and responsive by using tools like Foundation 5, Jekyll, Vaprobash, gruntJS, sass and more. This is going to be a mini-project for me. At the moment I am reading a couple of Laravel books and so I plan on adding/update as I read/learn.
+This is a Laravel 4 Cheat Sheet. It's based on the original by [JesseObrien](https://github.com/JesseObrien). I plan on making it (more) usefull and responsive by using tools like Foundation 5, Jekyll, Vaprobash, GruntJS, Sass and more.
+
+This is going to be a mini-project for me. At the moment I am reading a couple of Laravel books and so I plan on adding/updating as I read/learn. Your always welcome to contribute in anyway! Happy coding!
 
 **Live Version Here:**
 
