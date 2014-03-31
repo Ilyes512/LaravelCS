@@ -3,3 +3,7 @@
 laravel-cheatsheet.sublime-project
 laravel-cheatsheet.sublime-workspace
 _site
+node_modules
+bower_components
+fonts
+.sass-cache

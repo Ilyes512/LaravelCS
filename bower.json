@@ -1,0 +1,27 @@
+{
+  "name": "LaravelCS",
+  "version": "0.0.0",
+  "homepage": "http://Ilyes512.github.io/LaravelCS",
+  "description": "A Laravel Cheat Sheet",
+  "keywords": [
+    "Laravel",
+    "Cheat",
+    "Sheet",
+    "PHP"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "foundation": "~5.2.1",
+    "fontawesome": "~4.0.3",
+    "salvattore": "~1.0.7",
+    "google-code-prettify": "~1.0.1"
+  }
+}

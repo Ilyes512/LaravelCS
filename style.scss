@@ -1,8 +1,9 @@
----
----
+@import "dist/scss/normalize.scss",
+        "dist/scss/foundation.scss",
+        "dist/scss/fontawesome/font-awesome.scss";
 
 body { background: #333; font-size: 16px; font-family: 'Ubuntu Mono', monospace;}
-h1,h2,h3,h4,h5,h6 { font-family: 'UbuntuMono', monospace; }
+h1, h2, h3, h4, h5, h6 { font-family: 'UbuntuMono', monospace; }
 .top-bar { background: #333; color: #f4645f; }
 .fixed { border-bottom: solid 8px #f4645f; }
 .top-bar .name h1 a { color: #f4645f; }
@@ -37,7 +38,7 @@ h1,h2,h3,h4,h5,h6 { font-family: 'UbuntuMono', monospace; }
 /**
  * This prettyprint code is shamelessly stolen from the one and only @daylerees http://laravel.com/css/style.css
  */
- pre{font-family: "Ubuntu Mono", monospace;background-color:#333;padding:5px;font-size:90%;color:#e9e4e5;line-height:1.5em;margin:0.2em 0;border: 0;white-space:pre-wrap;}
+ pre { font-family: "Ubuntu Mono", monospace;background-color:#333;padding:5px;font-size:90%;color:#e9e4e5;line-height:1.5em;margin:0.2em 0;border: 0;white-space:pre-wrap; }
  pre .pln { color:#e9e4e5; }
  pre .str { color:#bcd42a; }
  pre .kwd { color:#4bb1b1; }

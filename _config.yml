@@ -4,9 +4,15 @@ exclude: [
     ".vagrant",
     ".gitignore",
     "README.md",
-    "Vagrantfile"
+    "Vagrantfile",
+    "package.json",
+    "Gruntfile.js",
+    "node_modules",
+    "bower.json",
+    "bower_components",
+    "dist"
 ]
-url: 192.168.33.20.xip.io
+url: http://Ilyes512.github.io/LaravelCS
 
 markdown: redcarpet
 pygments: true
