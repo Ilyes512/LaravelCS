@@ -90,6 +90,7 @@ Route::post('foo', function(){});
 Route::put('foo', function(){});
 Route::patch('foo', function(){});
 Route::delete('foo', function(){});
+Route::match(array('GET', 'POST'), 'foo', function(){});
 // RESTful actions
 Route::resource('foo', 'FooController');
             </pre>
