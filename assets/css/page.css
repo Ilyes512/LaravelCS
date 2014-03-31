@@ -1,3 +1,6 @@
+---
+---
+
 body { background: #333; font-size: 16px; font-family: 'Ubuntu Mono', monospace;}
 h1,h2,h3,h4,h5,h6 { font-family: 'UbuntuMono', monospace; }
 .top-bar { background: #333; color: #f4645f; }
@@ -10,6 +13,26 @@ h1,h2,h3,h4,h5,h6 { font-family: 'UbuntuMono', monospace; }
 .code-column h4 a { color: #fff; }
 .code-column h4 a:hover { color: #ddd; text-decoration: underline; }
 
+@media only screen and (max-width: 40em) {
+    #grid[data-columns]::before {
+        content: '1 .column.small-12.code-column';
+    }
+}
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+    #grid[data-columns]::before {
+        content: '2 .column.small-6.code-column';
+    }
+}
+@media only screen and (min-width: 64.063em) and (max-width: 90em) {
+    #grid[data-columns]::before {
+        content: '3 .column.small-4.code-column';
+    }
+}
+@media only screen and (min-width: 90.063em) and (max-width: 120em) {
+    #grid[data-columns]::before {
+        content: '4 .column.small-3.code-column';
+    }
+}
 
 /**
  * This prettyprint code is shamelessly stolen from the one and only @daylerees http://laravel.com/css/style.css
