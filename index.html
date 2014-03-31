@@ -123,6 +123,7 @@ Route::when('foo/*', 'foo', array('post'));
             <h6>Named Routes</h6>
             <pre class="prettyprint lang-php">Route::currentRouteName();
 Route::get('foo/bar', array('as' => 'foobar', function(){}));
+Route::get('foo/bar', array('as' => 'foobar', 'uses' => 'ControllerName@function'));
             </pre>
 
             <h6>Route Prefixing</h6>
