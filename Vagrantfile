@@ -61,7 +61,7 @@ Vagrant.configure("2") do |config|
   # Create a hostname, don't forget to put it to the `hosts` file
   # This will point to the server's default virtual host
   # TO DO: Make this work with virtualhost along-side xip.io URL
-  config.vm.hostname = "vaprobash.dev"
+  config.vm.hostname = "laravelcs.dev"
 
   # Create a static IP
   config.vm.network :private_network, ip: server_ip
@@ -241,6 +241,10 @@ Vagrant.configure("2") do |config|
   # Any local scripts you may want to run post-provisioning.
   # Add these to the same directory as the Vagrantfile.
   ##########
-  # config.vm.provision "shell", path: "./local-script.sh"
+  # config.vm.provision "shell", path: "./local-script.sh", privileged: false
+
+  # Install the local Node packages
+  config.vm.provision "shell", inline: 'echo ">>> Installing local Node Packages" && cd /vagrant && npm install', privileged: false
+
 
 end
