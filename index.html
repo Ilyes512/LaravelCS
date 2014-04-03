@@ -549,7 +549,7 @@ return Response::make($content)
             <h4><a name="redirects" href="#redirects">Redirects</a> <a href="http://laravel.com/docs/responses#redirects" title="Redirects @ Laravel Docs"><i class="fa fa-file-text"></i></a></h4>
             <pre class="prettyprint lang-php">return Redirect::to('foo/bar');
 return Redirect::to('foo/bar')->with('key', 'value');
-return Redirect::to('foo/bar')->withInput(Input::get());
+return Redirect::to('foo/bar')->withInput();
 return Redirect::to('foo/bar')->withInput(Input::except('password'));
 return Redirect::to('foo/bar')->withErrors($validator);
 return Redirect::back();
