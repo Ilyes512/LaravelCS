@@ -419,6 +419,7 @@ $table->morphs('parent');
             <pre class="prettyprint lang-php">Input::get('key');
 // Default if the key is missing
 Input::get('key', 'default');
+// Check for 1 or multiple keys
 Input::has('key');
 Input::all();
 // Only retrieve 'foo' and 'bar' when getting input
