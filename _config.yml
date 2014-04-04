@@ -1,6 +1,6 @@
 exclude: [
-    "laravel-cheatsheet.sublime-project",
-    "laravel-cheatsheet.sublime-workspace",
+    "laravelcs.sublime-project",
+    "laravelcs.sublime-workspace",
     ".vagrant",
     ".gitignore",
     "README.md",
@@ -10,7 +10,8 @@ exclude: [
     "node_modules",
     "bower.json",
     "bower_components",
-    "dist"
+    "dist",
+    "style.scss"
 ]
 url: http://Ilyes512.github.io/LaravelCS
 

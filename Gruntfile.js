@@ -13,7 +13,7 @@ module.exports = function(grunt) {
                     {src: 'bower_components/salvattore/dist/salvattore.js', dest: 'dist/js/vendor/salvattore.js'},
                     //{src: 'bower_components/google-code-prettify/src/prettify.js', dest: 'dist/js/vendor/prettify.js'},
                     {cwd: 'bower_components/fontawesome/scss/', src: '**', dest: 'dist/scss/fontawesome/', expand: true},
-                    {cwd: 'bower_components/fontawesome/fonts/', src: '**', dest: 'fonts/', expand: true}
+                    {cwd: 'bower_components/fontawesome/fonts/', src: '**', dest: '/assets/fonts/', expand: true}
                 ]
             }
         },
