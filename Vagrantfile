@@ -30,6 +30,7 @@ mariadb_root_password = "root"   # We'll assume user "root"
 ruby_version          = "latest" # Choose what ruby version should be installed (will also be the default version)
 ruby_gems             = [        # List any Ruby Gems that you want to install
   "jekyll",
+  "redcarpet",
   #"sass",
   "compass",
 ]
@@ -243,8 +244,8 @@ Vagrant.configure("2") do |config|
   ##########
   # config.vm.provision "shell", path: "./local-script.sh", privileged: false
 
-  # Install the local Node packages
-  config.vm.provision "shell", inline: 'echo ">>> Installing local Node Packages" && cd /vagrant && npm install', privileged: false
+  # Install the local Node packages & install pygments
+  config.vm.provision "shell", inline: 'echo ">>> Installing local Node Packages" && cd /vagrant && npm install && sudo apt-get install -y python-pygments', privileged: false
 
 
 end
