@@ -50,7 +50,7 @@ module.exports = function(grunt) {
         },
         watch: {
             sass: {
-                files: ['dist/scss/**', 'scss/**/*.scss'],
+                files: ['dist/scss/**', '*.scss'],
                 tasks: ['sass'],
                 options: {
                     spawn: false
@@ -69,7 +69,9 @@ module.exports = function(grunt) {
                     '_includes/*.html',
                     '_layouts/*.html',
                     '_config.yml',
-                    'index.html'
+                    '*.html',
+                    '*.md',
+                    '!README.md'
                 ],
                 tasks: ['shell:jekyllBuild', 'shell:jekyllServe'],
                 options: {
