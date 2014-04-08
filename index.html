@@ -68,9 +68,10 @@ composer self-update
 
         <div>
             <h4><a name="routing" href="#routing">Routing</a> <a href="http://laravel.com/docs/routing" title="Routing @ Laravel Docs"><i class="fa fa-file-text"></i></a></h4>
-            <pre class="prettyprint lang-php">Route::get('foo', function(){});
-Route::get('foo', 'ControllerName@function');
-Route::controller('foo', 'FooController');
+            <pre class="prettyprint lang-php">Route::get('URL', function(){});
+Route::get('URL', 'Controller@method');
+// RESTful controller
+Route::controller('baseURL', 'FooController');
 Route::resource('posts',' 'PostsController');
             </pre>
 
