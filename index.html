@@ -6,8 +6,7 @@ active: home
     <div id="salvattore" class="full-width" data-columns>
         <div>
             <h4><a name="artisan" href="#artisan">Artisan</a> <a href="http://laravel.com/docs/artisan" title="Artisan CLI @ Laravel Docs"><i class="fa fa-file-text"></i></a></h4>
-            <pre class="prettyprint lang-php">
-php artisan --help OR -h
+            <pre class="prettyprint lang-php">php artisan --help OR -h
 php artisan --quiet OR -q
 php artisan --version OR -V
 php artisan --no-interaction OR -n
@@ -51,19 +50,16 @@ php artisan queue:subscribe [--type[="..."]] queue url
 php artisan queue:work [--queue[="..."]] [--delay[="..."]] [--memory[="..."]] [--sleep] [connection]
 php artisan session:table
 php artisan view:publish [--path[="..."]] package
-php artisan tail [--path[="..."]] [--lines[="..."]] [connection]
-            </pre>
+php artisan tail [--path[="..."]] [--lines[="..."]] [connection]</pre>
         </div>
 
         <div>
             <h4><a name="composer" href="#composer">Composer</a> <a href="http://getcomposer.org/doc/03-cli.md" title="Composer CLI Docs"><i class="fa fa-file-text"></i></a></h4>
-            <pre class="prettyprint lang-php">
-composer create-project laravel/laravel folder_name
+            <pre class="prettyprint lang-php">composer create-project laravel/laravel folder_name
 composer install
 composer update
 composer dump-autoload [--optimize]
-composer self-update
-            </pre>
+composer self-update</pre>
         </div>
 
         <div>
@@ -72,19 +68,16 @@ composer self-update
 Route::get('URL', 'Controller@method');
 // RESTful controller
 Route::controller('baseURL', 'FooController');
-Route::resource('posts',' 'PostsController');
-            </pre>
+Route::resource('posts',' 'PostsController');</pre>
 
             <h6>Triggering Errors</h6>
             <pre class="prettyprint lang-php">App::abort(404);
 App::missing(function($exception){});
-throw new NotFoundHttpException;
-            </pre>
+throw new NotFoundHttpException;</pre>
 
             <h6>Route Parameters</h6>
             <pre class="prettyprint lang-php">Route::get('foo/{bar}', function($bar){});
-Route::get('foo/{bar?}', function($bar = 'bar'){});
-            </pre>
+Route::get('foo/{bar?}', function($bar = 'bar'){});</pre>
 
             <h6>HTTP Verbs</h6>
             <pre class="prettyprint lang-php">Route::any('foo', function(){});
@@ -94,8 +87,7 @@ Route::patch('foo', function(){});
 Route::delete('foo', function(){});
 Route::match(array('GET', 'POST'), 'foo', function(){});
 // RESTful actions
-Route::resource('foo', 'FooController');
-            </pre>
+Route::resource('foo', 'FooController');</pre>
 
             <h6>Secure Routes</h6>
             <pre class="prettyprint lang-php">Route::get('foo', array('https', function(){}));</pre>
@@ -106,8 +98,8 @@ Route::resource('foo', 'FooController');
 Route::get('foo/{bar}/{baz}', function($bar, $baz){})
 ->where(array('bar' => '[0-9]+', 'baz' => '[A-Za-z]'))
 // Set a pattern to be used across routes
-Route::pattern('bar', '[0-9]+')
-            </pre>
+Route::pattern('bar', '[0-9]+')</pre>
+
             <h6>Filters</h6>
             <pre class="prettyprint lang-php">// Declare an auth filter
 Route::filter('auth', function(){});
@@ -120,24 +112,20 @@ Route::group(array('before' => 'auth'), function(){});
 // Pattern filter
 Route::when('foo/*', 'foo');
 // HTTP verb pattern
-Route::when('foo/*', 'foo', array('post'));
-            </pre>
+Route::when('foo/*', 'foo', array('post'));</pre>
 
             <h6>Named Routes</h6>
             <pre class="prettyprint lang-php">Route::currentRouteName();
 Route::get('foo/bar', array('as' => 'foobar', function(){}));
-Route::get('foo/bar', array('as' => 'foobar', 'uses' => 'ControllerName@function'));
-            </pre>
+Route::get('foo/bar', array('as' => 'foobar', 'uses' => 'ControllerName@function'));</pre>
 
             <h6>Route Prefixing</h6>
             <pre class="prettyprint lang-php">// This route group will carry the prefix 'foo'
-Route::group(array('prefix' => 'foo'), function(){})
-            </pre>
+Route::group(array('prefix' => 'foo'), function(){})</pre>
 
             <h6>Sub-Domain Routing</h6>
             <pre class="prettyprint lang-php">// {sub} will be passed to the closure
-Route::group(array('domain' => '{sub}.example.com'), function(){});
-            </pre>
+Route::group(array('domain' => '{sub}.example.com'), function(){});</pre>
         </div>
 
         <div>
@@ -155,8 +143,7 @@ URL::isValidUrl('http://example.com');
 URL::getRequest();
 URL::setRequest($request);
 URL::getGenerator();
-URL::setGenerator($generator);
-            </pre>
+URL::setGenerator($generator);</pre>
         </div>
 
         <div>
@@ -171,8 +158,7 @@ Event::queue('foo', array($bar));
 Event::flusher('foo', function($bar){});
 Event::flush('foo');
 Event::forget('foo');
-Event::subscribe(new FooEventHandler);
-            </pre>
+Event::subscribe(new FooEventHandler);</pre>
         </div>
 
         <div>
@@ -185,8 +171,7 @@ DB::transaction(function(){ transaction_code_here; });
 // Cache a query for $time minutes
 DB::table('users')->remember($time)->get();
 // Escape raw input
-DB::raw('sql expression here');
-            </pre>
+DB::raw('sql expression here');</pre>
 
             <h6>Selects</h6>
             <pre class="prettyprint lang-php">DB::table('name')->get();
@@ -209,8 +194,7 @@ DB::table('name')->pluck('column');
 DB::table('name')->lists('column');
 // Joins
 DB::table('name')->join('table', 'name.id', '=', 'table.id')
-->select('name.id', 'table.email');
-            </pre>
+->select('name.id', 'table.email');</pre>
 
             <h6>Inserts, Updates, Deletes</h6>
             <pre class="prettyprint lang-php">DB::table('name')->insert(array('name' => 'John', 'email' => 'john@example.com'));
@@ -227,8 +211,7 @@ DB::table('name')->where('name', '=', 'John')
 DB::table('name')->delete();
 // Delete specific records
 DB::table('name')->where('id', '>', '10')->delete();
-DB::table('name')->truncate();
-            </pre>
+DB::table('name')->truncate();</pre>
 
             <h6>Aggregates</h6>
             <pre class="prettyprint lang-php">DB::table('name')->count();
@@ -243,13 +226,11 @@ DB::table('name')->decrement('column', $amount);
 DB::table('name')->remember(5)->get();
 DB::table('name')->remember(5, 'cache-key-name')->get();
 DB::table('name')->cacheTags('my-key')->remember(5)->get();
-DB::table('name')->cacheTags(array('my-first-key','my-second-key'))->remember(5)->get();
-            </pre>
+DB::table('name')->cacheTags(array('my-first-key','my-second-key'))->remember(5)->get();</pre>
 
             <h6>Raw Expressions</h6>
             <pre class="prettyprint lang-php">DB::select('select * from users where id = ?', array('value'));
-DB::table('name')->select(DB::raw('count(*) as count, column2'))->get();
-            </pre>
+DB::table('name')->select(DB::raw('count(*) as count, column2'))->get();</pre>
         </div>
 
         <div>
@@ -280,15 +261,13 @@ Model::cacheTags(array('my-first-key','my-second-key'))->remember(5)->get();
 Model::on('connection-name')->find(1);
 Model::with('relation')->get();
 Model::all()->take(10);
-Model::all()->skip(10);
-            </pre>
+Model::all()->skip(10);</pre>
 
             <h6>Soft Delete</h6>
             <pre class="prettyprint lang-php">Model::withTrashed()->where('cars', 2)->get();
 Model::withTrashed()->where('cars', 2)->restore();
 Model::where('cars', 2)->forceDelete();
-Model::onlyTrashed()->where('cars', 2)->get();
-            </pre>
+Model::onlyTrashed()->where('cars', 2)->get();</pre>
 
             <h6>Events</h6>
             <pre class="prettyprint lang-php">Model::creating(function($model){});
@@ -299,41 +278,38 @@ Model::saving(function($model){});
 Model::saved(function($model){});
 Model::deleting(function($model){});
 Model::deleted(function($model){});
-Model::observe(new FooObserver);
-            </pre>
+Model::observe(new FooObserver);</pre>
+
             <h6>Eloquent Configuration</h6>
             <pre class="prettyprint lang-php">Eloquent::unguard();
 // Disables mass assignment exceptions from being thrown from model inserts and updates
 Eloquent::reguard();
-// Renables any ability to throw mass assignment exceptions
-            </pre>
+// Renables any ability to throw mass assignment exceptions</pre>
         </div>
 
         <div>
             <h4>
                 <a name="remote" href="#remote">The Remote Component</a> <a href="http://laravel.com/docs/ssh" title="SSH @ Laravel Docs"><i class="fa fa-file-text"></i></a>
             </h4>
+
             <h6>Executing Commands</h6>
             <pre class="prettyprint lang-php">SSH::run(array $commands);
 SSH::into($remote)->run(array $commands); // specify remote, otherwise assumes default
 SSH::run(array $commands, function($line)
 {
     echo $line.PHP_EOL;
-});
-            </pre>
+});</pre>
 
             <h6>Tasks</h6>
             <pre class="prettyprint lang-php">SSH::define($taskName, array $commands); // define
 SSH::task($taskName, function($line) // execute
 {
     echo $line.PHP_EOL;
-});
-            </pre>
+});</pre>
 
             <h6>SFTP Uploads</h6>
             <pre class="prettyprint lang-php">SSH::put($localFile, $remotePath);
-SSH::putString($string, $remotePath);
-            </pre>
+SSH::putString($string, $remotePath);</pre>
         </div>
 
         <div>
@@ -356,8 +332,7 @@ $table->renameColumn('from', 'to');
 $table->dropColumn(string|array);
 $table->engine = 'InnoDB';
 // Only work on MySQL
-$table->string('name')->after('email');
-            </pre>
+$table->string('name')->after('email');</pre>
 
             <h6>Indexes</h6>
             <pre class="prettyprint lang-php">
@@ -377,15 +352,13 @@ $table->index(array('first', 'last'));
 $table->index(array('first', 'last'), 'key_name');
 $table->dropPrimary('table_column_primary');
 $table->dropUnique('table_column_unique');
-$table->dropIndex('table_column_index');
-            </pre>
+$table->dropIndex('table_column_index');</pre>
 
             <h6>Foreign Keys</h6>
             <pre class="prettyprint lang-php">
 $table->foreign('user_id')->references('id')->on('users');
 $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-$table->dropForeign('posts_user_id_foreign');
-            </pre>
+$table->dropForeign('posts_user_id_foreign');</pre>
 
             <h6>Column Types</h6>
             <pre class="prettyprint lang-php">$table->increments('id');
@@ -412,8 +385,7 @@ $table->morphs('parent');
 // Adds INTEGER parent_id and STRING parent_type
 ->nullable()
 ->default($value)
-->unsigned()
-            </pre>
+->unsigned()</pre>
         </div>
 
         <div>
@@ -427,16 +399,14 @@ Input::all();
 // Only retrieve 'foo' and 'bar' when getting input
 Input::only('foo', 'bar');
 // Disregard 'foo' when getting input
-Input::except('foo');
-            </pre>
+Input::except('foo');</pre>
 
             <h6>Session Input (flash)</h6>
             <pre class="prettyprint lang-php">// Flash input to the session
 Input::flash();
 Input::flashOnly('foo', 'bar');
 Input::flashExcept('foo', 'baz');
-Input::old('key','default_value');
-            </pre>
+Input::old('key','default_value');</pre>
 
             <h6>Files</h6>
             <pre class="prettyprint lang-php">// Use a file that's been uploaded
@@ -452,8 +422,7 @@ Input::file('name')->getMimeType();
 // Move an uploaded file
 Input::file('name')->move($destinationPath);
 // Move an uploaded file
-Input::file('name')->move($destinationPath, $fileName);
-            </pre>
+Input::file('name')->move($destinationPath, $fileName);</pre>
         </div>
 
         <div>
@@ -479,8 +448,7 @@ Cache::decrement('key');
 Cache::decrement('key', $amount);
 Cache::section('group')->put('key', $value);
 Cache::section('group')->get('key');
-Cache::section('group')->flush();
-            </pre>
+Cache::section('group')->flush();</pre>
         </div>
 
         <div>
@@ -492,8 +460,7 @@ Cookie::forever('key', 'value');
 Cookie::queue('key', 'value', 'minutes');
 // Send a cookie with a response
 $response = Response::make('Hello World');
-$response->withCookie(Cookie::make('name', 'value', $minutes));
-            </pre>
+$response->withCookie(Cookie::make('name', 'value', $minutes));</pre>
         </div>
 
         <div>
@@ -511,8 +478,7 @@ Session::flush();
 Session::regenerate();
 Session::flash('key', 'value');
 Session::reflash();
-Session::keep(array('key1', 'key2'));
-            </pre>
+Session::keep(array('key1', 'key2'));</pre>
         </div>
 
         <div>
@@ -524,8 +490,7 @@ Request::segment(1);
 Request::header('Content-Type');
 Request::server('PATH_INFO');
 Request::ajax();
-Request::secure();
-            </pre>
+Request::secure();</pre>
         </div>
 
         <div>
@@ -543,8 +508,7 @@ $response->header('Content-Type', 'application/json');
 return $response;
 // Attach a cookie to a response
 return Response::make($content)
-    ->withCookie(Cookie::make('key', 'value'));
-            </pre>
+    ->withCookie(Cookie::make('key', 'value'));</pre>
         </div>
 
         <div>
@@ -562,8 +526,7 @@ return Redirect::action('FooController@index');
 return Redirect::action('FooController@baz', array('value'));
 return Redirect::action('FooController@baz', array('key' => 'value'));
 // If intended redirect is not defined, defaults to foo/bar.
-return Redirect::intended('foo/bar');
-            </pre>
+return Redirect::intended('foo/bar');</pre>
         </div>
 
         <div>
@@ -577,8 +540,7 @@ App::instance('foo', new Foo);
 App::bind('FooRepositoryInterface', 'BarRepository');
 App::register('FooServiceProvider');
 // Listen for object resolution
-App::resolving(function($object){});
-            </pre>
+App::resolving(function($object){});</pre>
         </div>
 
         <div>
@@ -586,8 +548,7 @@ App::resolving(function($object){});
             <h6>Passwords</h6>
             <pre class="prettyprint lang-php">Hash::make('secretpassword');
 Hash::check('secretpassword', $hashedPassword);
-Hash::needsRehash($hashedPassword);
-            </pre>
+Hash::needsRehash($hashedPassword);</pre>
 
             <h6>Auth</h6>
             <pre class="prettyprint lang-php">// Check if the user is logged in
@@ -604,15 +565,13 @@ Auth::logout();
 Auth::validate($credentials);
 Auth::basic('username');
 Auth::onceBasic();
-Password::remind($credentials, function($message, $user){});
-            </pre>
+Password::remind($credentials, function($message, $user){});</pre>
 
             <h6>Encryption</h6>
             <pre class="prettyprint lang-php">Crypt::encrypt('secretstring');
 Crypt::decrypt($encryptedString);
 Crypt::setMode('ctr');
-Crypt::setCipher($cipher);
-            </pre>
+Crypt::setCipher($cipher);</pre>
         </div>
 
         <div>
@@ -623,8 +582,7 @@ Mail::queue('email.view', $data, function($message){});
 Mail::queueOn('queue-name', 'email.view', $data, $callback);
 Mail::later(5, 'email.view', $data, function($message){});
 // Write all email to logs instead of sending
-Mail::pretend();
-            </pre>
+Mail::pretend();</pre>
 
             <h6>Messages</h6>
             <pre class="prettyprint lang-php">// These can be used on the $message instance passed into Mail::send() or Mail::queue()
@@ -644,8 +602,7 @@ $message->attachData('bar', 'Data Name', $options);
 $message->embed('foo\bar.txt');
 $message->embedData('foo', 'Data Name', $options);
 // Get the underlying Swift Message instance
-$message->getSwiftMessage();
-            </pre>
+$message->getSwiftMessage();</pre>
         </div>
 
         <div>
@@ -656,8 +613,7 @@ Queue::push(function($job) use $id {});
 php artisan queue:listen
 php artisan queue:listen connection
 php artisan queue:listen --timeout=60
-php artisan queue:work
-            </pre>
+php artisan queue:work</pre>
         </div>
 
         <div>
@@ -671,8 +627,7 @@ Validator::extend('foo', 'FooValidator@validate');
 Validator::resolver(function($translator, $data, $rules, $msgs)
 {
     return new FooValidator($translator, $data, $rules, $msgs);
-});
-            </pre>
+});</pre>
 
             <h6>Rules</h6>
             <pre class="prettyprint lang-php">accepted
@@ -706,9 +661,7 @@ required_without:foo,bar,baz
 same:field
 size:value
 unique:table,column,except,idColumn
-url
-
-            </pre>
+url</pre>
         </div>
 
         <div>
@@ -728,8 +681,7 @@ View::composer('viewname', function($view){});
 View::composer(array('view1', 'view2'), function($view){});
 // Register a composer class
 View::composer('viewname', 'FooComposer');
-View::creator('viewname', function($view){});
-            </pre>
+View::creator('viewname', function($view){});</pre>
         </div>
 
         <div>
@@ -768,8 +720,7 @@ View::creator('viewname', function($view){});
 // Echoing Data After Checking For Existence
 &#123;&#123;&#123; $name or 'Default' &#125;&#125;&#125;
 // Displaying Raw Text With Curly Braces
-@&#123;&#123; This will not be processed by Blade &#125;&#125;
-            </pre>
+@&#123;&#123; This will not be processed by Blade &#125;&#125;</pre>
         </div>
 
         <div>
@@ -782,9 +733,7 @@ Form::open(array('action' => array('FooController@method', $parameter)));
 Form::open(array('url' => 'foo/bar', 'files' => true));
 Form::close();
 Form::token();
-Form::model($foo, array('route' => array('foo.bar', $foo->bar)));
-
-            </pre>
+Form::model($foo, array('route' => array('foo.bar', $foo->bar)));</pre>
 
             <h6>Form Elements</h6>
             <pre class="prettyprint lang-php">Form::label('id', 'Description');
@@ -813,8 +762,7 @@ Form::macro('fooField', function()
 {
     return '&lt;input type="custom"/&gt;';
 });
-Form::fooField();
-            </pre>
+Form::fooField();</pre>
         </div>
 
         <div>
@@ -840,8 +788,7 @@ HTML::listingElement($key, $type, $value);
 HTML::nestedListing($key, $type, $value);
 HTML::attributes($attributes);
 HTML::attributeElement($key, $value);
-HTML::obfuscate($value);
-            </pre>
+HTML::obfuscate($value);</pre>
         </div>
 
         <div>
@@ -871,8 +818,7 @@ Str::snake($value, $delimiter = '_')
 Str::startsWith($haystack, $needles)
 // Convert a value to studly caps case.
 Str::studly($value)
-Str::macro($name, $macro)
-            </pre>
+Str::macro($name, $macro)</pre>
         </div>
 
         <div>
@@ -881,8 +827,7 @@ Str::macro($name, $macro)
 Lang::get('messages.welcome');
 Lang::get('messages.welcome', array('foo' => 'Bar'));
 Lang::has('messages.welcome');
-Lang::choice('messages.apples', 10);
-            </pre>
+Lang::choice('messages.apples', 10);</pre>
         </div>
 
         <div>
@@ -915,8 +860,7 @@ File::directories('directory');
 File::makeDirectory('path',  $mode = 0777, $recursive = false);
 File::copyDirectory('directory', 'destination', $options = null);
 File::deleteDirectory('directory', $preserve = false);
-File::cleanDirectory('directory');
-            </pre>
+File::cleanDirectory('directory');</pre>
         </div>
 
         <div>
@@ -948,16 +892,14 @@ array_sort($array, function(){});
 // First element of an array
 head($array);
 // Last element of an array
-last($array);
-            </pre>
+last($array);</pre>
 
             <h6>Paths</h6>
             <pre class="prettyprint lang-php">app_path();
 public_path();
 // App root path
 base_path();
-storage_path();
-            </pre>
+storage_path();</pre>
 
             <h6>Strings</h6>
             <pre class="prettyprint lang-php">
@@ -978,8 +920,7 @@ str_singular('cars');
 // Result: FooBar
 studly_case('foo_bar');
 trans('foo.bar');
-trans_choice('foo.bar', $count);
-            </pre>
+trans_choice('foo.bar', $count);</pre>
 
             <h6>URLs and Links</h6>
             <pre class="prettyprint lang-php">action('FooController@method', $parameters);
@@ -993,15 +934,13 @@ asset('img/photo.jpg', $title, $attributes);
 secure_asset('img/photo.jpg', $title, $attributes);
 secure_url('path', $parameters);
 route($route, $parameters, $absolute = true);
-url('path', $parameters = array(), $secure = null);
-            </pre>
+url('path', $parameters = array(), $secure = null);</pre>
 
             <h6>Miscellaneous</h6>
             <pre class="prettyprint lang-php">
 csrf_token();
 dd($value);
 value(function(){ return 'bar'; });
-with(new Foo)->chainedMethod();
-            </pre>
+with(new Foo)->chainedMethod();</pre>
         </div>
     </div>
