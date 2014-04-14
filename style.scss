@@ -2,15 +2,6 @@
         "dist/scss/foundation.scss",
         "dist/scss/fontawesome/font-awesome.scss";
 
-body {
-  background: #333;
-  font-size: 16px;
-  font-family: 'Ubuntu Mono', monospace;
-}
-.top-bar {
-  background: #333;
-  color: $primary-color;
-}
 .fixed { border-bottom: solid 8px $primary-color; }
 .top-bar .name h1 a { color: $primary-color; }
 .gist-file pre { color: #000; }
@@ -22,27 +13,18 @@ body {
     max-width: 100%;
   }
   .code-column {
-    background-color: #333;
     color: #fff;
     word-wrap: break-word;
 
     h6 {
-      color: #ddd;
       margin: 0.2em 0;
+      font-style: italic;
     }
 
     h4 {
-      color: #fff;
       margin: 10px 0;
-      a {
-        color: #fff;
-        &:hover {
-          color: #ddd;
-          text-decoration: underline;
-        }
-      }
+      a:hover { text-decoration: underline; }
     }
-
   }
 
   @media #{$small-only} {
@@ -63,28 +45,24 @@ body {
  * This prettyprint code is shamelessly stolen from the one and only @daylerees http://laravel.com/css/style.css
  */
 pre {
-  font-family: "Ubuntu Mono", monospace;
-  background-color: #333;
-  padding: 5px;
-  font-size: 90%;
+  padding: rem-calc(20);
+  font-family: 'Ubuntu Mono', monospace;
+  font-size: rem-calc(14);
   color: #e9e4e5;
-  line-height: 1.5em;
-  margin: 0.2em 0;
-  border: 0;
+  line-height: rem-calc(21);
   white-space: pre-wrap;
+  background-color: #333;
+  @include radius($radius:5px);
   .pln { color:#e9e4e5; }
-  .str { color:#bcd42a; }
-  .kwd { color:#4bb1b1; }
-  .com { color:#888888; display:block; }
+  .str, .atv, .lit { color:#bcd42a; }
+  .kwd, .tag { color:#4bb1b1; }
+  .com {
+    color:#888888;
+    display:block;
+  }
   .com + .pln { white-space: normal; }
-  .typ { color:#ef7c61; }
-  .lit { color:#bcd42a; }
+  .typ, .atn { color:#ef7c61; }
   .pun, .opn, .clo { color:#ffffff; }
-  .tag { color:#4bb1b1; }
-  .atn { color:#ef7c61; }
-  .atv { color:#bcd42a; }
   .dec, .var { color:#660066; }
   .fun { color:#ff0000; }
-  code { font-family: "Ubuntu Mono", monospace; }
-  &.prettyprint { border: 0 ! important; }
 }
