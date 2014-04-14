@@ -693,6 +693,8 @@ View::creator('viewname', function($view){});</pre>
 @stop
 // End a section and yield
 @show
+// Section with inline content
+@section('name', '&#60;h1&#62;Foo&#60;/h1&#62;')
 @parent
 // Show a section in a template
 @yield('name')
