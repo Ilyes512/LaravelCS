@@ -1,4 +1,4 @@
-## (The not yet Improved) Laravel Cheat Sheet
+## Laravel Cheat Sheet
 
 This is a Laravel 4 Cheat Sheet. It's based on the original by [JesseObrien](https://github.com/JesseObrien). I plan on making it (more) usefull and responsive by using tools like Foundation 5, Jekyll, Vaprobash, GruntJS, Sass and more.
 
