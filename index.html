@@ -361,13 +361,17 @@ $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 $table->dropForeign('posts_user_id_foreign');</pre>
 
             <h6>Column Types</h6>
-            <pre class="prettyprint lang-php">$table->increments('id');
+            <pre class="prettyprint lang-php">$table->tinyInteger('numbers');
+$table->increments('id');
 $table->bigIncrements('id');
 $table->string('email');
 $table->string('name', 100);
+$table->text('description');
+$table->mediumText('description');
+$table->longText('description');
+$table->smallInteger('votes');
 $table->integer('votes');
 $table->bigInteger('votes');
-$table->smallInteger('votes');
 $table->float('amount');
 $table->double('column', 15, 8);
 $table->decimal('amount', 5, 2);
@@ -376,13 +380,14 @@ $table->date('created_at');
 $table->dateTime('created_at');
 $table->time('sunrise');
 $table->timestamp('added_on');
+// Adds 'created_at' and 'updated_at' columns
 $table->timestamps();
+// Adds 'deleted_at' column for soft deletes
 $table->softDeletes();
-$table->text('description');
 $table->binary('data');
 $table->enum('choices', array('foo', 'bar'));
+// Adds INTEGER 'parent_id' and STRING 'parent_type'
 $table->morphs('parent');
-// Adds INTEGER parent_id and STRING parent_type
 ->nullable()
 ->default($value)
 ->unsigned()</pre>
@@ -677,7 +682,7 @@ View::share('key', 'value');
 View::make('foo/bar')->nest('name', 'foo/baz', $data);
 // Register a view composer
 View::composer('viewname', function($view){});
-//Register multiple views to a composer
+// Register multiple views to a composer
 View::composer(array('view1', 'view2'), function($view){});
 // Register a composer class
 View::composer('viewname', 'FooComposer');
