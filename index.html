@@ -327,6 +327,7 @@ Schema::hasTable('table');
 Schema::hasColumn('table', 'column');
 // Update an existing table
 Schema::table('table', function($table){});
+// Renaming 'enum' column types is not supported
 $table->renameColumn('from', 'to');
 $table->dropColumn(string|array);
 $table->dropSoftDeletes();
