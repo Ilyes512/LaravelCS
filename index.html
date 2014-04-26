@@ -330,6 +330,8 @@ Schema::hasColumn('table', 'column');
 Schema::table('table', function($table){});
 $table->renameColumn('from', 'to');
 $table->dropColumn(string|array);
+$table->dropSoftDeletes();
+$table->dropTimestamps();
 $table->engine = 'InnoDB';
 // Only work on MySQL
 $table->string('name')->after('email');</pre>
@@ -382,6 +384,7 @@ $table->time('sunrise');
 $table->timestamp('added_on');
 // Adds 'created_at' and 'updated_at' columns
 $table->timestamps();
+$table->nullableTimestamps();
 $table->boolean('confirmed');
 // Adds 'deleted_at' column for soft deletes
 $table->softDeletes();
