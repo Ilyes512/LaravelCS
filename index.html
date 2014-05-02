@@ -235,32 +235,67 @@ DB::table('name')->select(DB::raw('count(*) as count, column2'))->get();</pre>
         <div>
             <h4><a name="eloquent" href="#eloquent"><span>#</span>Eloquent</a> <a href="http://laravel.com/docs/eloquent" title="Eloquent @ Laravel Docs"><i class="fa fa-file-text"></i></a></h4>
             <pre class="prettyprint lang-php">Model::create(['key' => 'value']);
+Model::save($options = []);
 // Fill a model with an array of attributes, beware of mass assignment!
 Model::fill($attributes);
-Model::destroy(1);
-Model::all();
-Model::find(1);
-// Find using dual primary key
-Model::find(['first', 'last']);
+// $min = duration in minutes
+Model::remember($min)->get();
+Model::remember($min, 'cache-key-name')->get();
+Model::cacheTags('my-tag')->remember($min)->get();
+Model::cacheTags(['my-first-key', 'my-second-key'])->remember($min)->get();
+Model::on('connection-name')->find($id);
+Model::with('relation')->get();</pre>
+
+            <h6>Fetch methods</h6>
+            <pre class="prettyprint lang-php">// Retrieve row based on id
+Model::find($id1, $columns = ['*']);
+Model::find([$id1, $id2], $columns = ['*']);
 // Throw an exception if the lookup fails
-Model::findOrFail(1);
-// Find using dual primary key and throw exception if the lookup fails
-Model::findOrFail(['first', 'last']);
-Model::where('foo', '=', 'bar')->get();
-Model::where('foo', '=', 'bar')->first();
-// Throw an exception if the lookup fails
-Model::where('foo', '=', 'bar')->firstOrFail();
-Model::where('foo', '=', 'bar')->count();
-Model::where('foo', '=', 'bar')->delete();
-Model::whereRaw('foo = bar and cars = 2', [20])->get();
-Model::remember(5)->get();
-Model::remember(5, 'cache-key-name')->get();
-Model::cacheTags('my-tag')->remember(5)->get();
-Model::cacheTags(['my-first-key', 'my-second-key'])->remember(5)->get();
-Model::on('connection-name')->find(1);
-Model::with('relation')->get();
-Model::all()->take(10);
-Model::all()->skip(10);</pre>
+Model::findOrFail($id, $columns = ['*']);
+Model::findOrFail([$id1, $id2], $columns = ['*']);
+Model::all($columns = ['*']);
+// Execute query and retrieve the result(s)
+Model::{query constraint}->get($columns = ['*']);
+// Retrieve the row from the first of the results
+Model::first($columns = ['*']);
+Model::{query constraint}->first($columns = ['*']);
+// Retrieve the column from the first of the results
+Model::pluck('column');
+Model::{query constraint}->pluck('column');
+// Retrieve the column from ALL results. Optionaly with another column as it's key
+Model::lists($column, $key = null);
+Model::{query constraint}->lists($column, $key = null);
+// The next four methods return the number of effected rows
+Model::{query constraint}->update(['column' => 'value']);
+Model::{query constraint}->delete();
+Model::destroy($id1);
+Model::destroy([$id1, $id2]);
+Model::{query constraint}->count();
+// Get the SQL representation of the query
+Model::{query constraint}->toSql();</pre>
+
+            <h6>Query Constraints</h6>
+            <pre class="prettyprint lang-php">// Below methods also have a prefixed 'or'-method
+Model::where('column', '=', 'value')->get();
+Model::whereRaw('column = ?', ['value']);
+// Below three methods have a combination of a prefixed 'or' and a 'Not' in the middle
+Model::whereBetween('year', [2005, 2012])->get();
+Model::whereIn('column', ['value1', 'value2'])->get();
+Model::whereNull('column')->get();
+// Direction's: 'asc' or 'desc'
+Model::orderBy('column', $direction = 'asc')->get();
+Model::take(10)->get();
+Model::skip(5)->get();
+// Nested 'where'-query's
+Model::whereNested(function($query){
+    $query->where(...);
+    $query->orWhere(...);
+})->get();
+Model::orWhere(function($query){
+    $query->where(...);
+    $query->orWhere(...);
+})->get();
+</pre>
 
             <h6>Soft Delete</h6>
             <pre class="prettyprint lang-php">Model::withTrashed()->where('cars', 2)->get();
