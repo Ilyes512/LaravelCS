@@ -65,10 +65,10 @@ composer self-update</pre>
         <div>
             <h4><a name="routing" href="#routing"><span>#</span>Routing</a> <a href="http://laravel.com/docs/routing" title="Routing @ Laravel Docs"><i class="fa fa-file-text"></i></a></h4>
             <pre class="prettyprint lang-php">Route::get('URL', function(){});
-Route::get('URL', 'Controller@method');
-// RESTful controller
-Route::controller('baseURL', 'FooController');
-Route::resource('posts',' 'PostsController');</pre>
+Route::get($url, 'Controller@method');
+// RESTful actions
+Route::controller($baseUrl, 'FooController');
+Route::resource($url, 'PostsController');</pre>
 
             <h6>Triggering Errors</h6>
             <pre class="prettyprint lang-php">App::abort(404);
@@ -80,17 +80,17 @@ throw new NotFoundHttpException;</pre>
 Route::get('foo/{bar?}', function($bar = 'bar'){});</pre>
 
             <h6>HTTP Verbs</h6>
-            <pre class="prettyprint lang-php">Route::any('foo', function(){});
-Route::post('foo', function(){});
-Route::put('foo', function(){});
-Route::patch('foo', function(){});
-Route::delete('foo', function(){});
-Route::match(['GET', 'POST'], 'foo', function(){});
+            <pre class="prettyprint lang-php">Route::any($uri, function(){});
+Route::post($url, function(){});
+Route::put($url, function(){});
+Route::patch($url, function(){});
+Route::delete($url, function(){});
+Route::match(['GET', 'POST'], $url, function(){});
 // RESTful actions
-Route::resource('foo', 'FooController');</pre>
+Route::resource($baseUrl, 'FooController');</pre>
 
             <h6>Secure Routes</h6>
-            <pre class="prettyprint lang-php">Route::get('foo', ['https', function(){}]);</pre>
+            <pre class="prettyprint lang-php">Route::get($uri, ['https', function(){}]);</pre>
 
             <h6>Route Constraints</h6>
             <pre class="prettyprint lang-php">Route::get('foo/{bar}', function($bar){})
@@ -98,16 +98,16 @@ Route::resource('foo', 'FooController');</pre>
 Route::get('foo/{bar}/{baz}', function($bar, $baz){})
 ->where(['bar' => '[0-9]+', 'baz' => '[A-Za-z]'])
 // Set a pattern to be used across routes
-Route::pattern('bar', '[0-9]+')</pre>
+Route::pattern($key, '[0-9]+')</pre>
 
             <h6>Filters</h6>
             <pre class="prettyprint lang-php">// Declare an auth filter
 Route::filter('auth', function(){});
 // Register a class as a filter
-Route::filter('foo', 'FooFilter');
-Route::get('foo', ['before' => 'auth', function(){}]);
+Route::filter($uri, 'FooFilter');
+Route::get($uri, ['before' => 'auth', function(){}]);
 // Routes in this group are guarded by the 'auth' filter
-Route::get('foo', ['before' => 'auth', function(){}]);
+Route::get($uri, ['before' => 'auth', function(){}]);
 Route::group(['before' => 'auth'], function(){});
 // Pattern filter
 Route::when('foo/*', 'foo');
@@ -121,7 +121,7 @@ Route::get('foo/bar', ['as' => 'foobar', 'uses' => 'ControllerName@function']);<
 
             <h6>Route Prefixing</h6>
             <pre class="prettyprint lang-php">// This route group will carry the prefix 'foo'
-Route::group(['prefix' => 'foo'], function(){})</pre>
+Route::group(['prefix' => $uri], function(){})</pre>
 
             <h6>Sub-Domain Routing</h6>
             <pre class="prettyprint lang-php">// {sub} will be passed to the closure
