@@ -85,18 +85,18 @@ Route::post('foo', function(){});
 Route::put('foo', function(){});
 Route::patch('foo', function(){});
 Route::delete('foo', function(){});
-Route::match(array('GET', 'POST'), 'foo', function(){});
+Route::match(['GET', 'POST'], 'foo', function(){});
 // RESTful actions
 Route::resource('foo', 'FooController');</pre>
 
             <h6>Secure Routes</h6>
-            <pre class="prettyprint lang-php">Route::get('foo', array('https', function(){}));</pre>
+            <pre class="prettyprint lang-php">Route::get('foo', ['https', function(){}]);</pre>
 
             <h6>Route Constraints</h6>
             <pre class="prettyprint lang-php">Route::get('foo/{bar}', function($bar){})
 ->where('bar', '[0-9]+');
 Route::get('foo/{bar}/{baz}', function($bar, $baz){})
-->where(array('bar' => '[0-9]+', 'baz' => '[A-Za-z]'))
+->where(['bar' => '[0-9]+', 'baz' => '[A-Za-z]'])
 // Set a pattern to be used across routes
 Route::pattern('bar', '[0-9]+')</pre>
 
@@ -105,27 +105,27 @@ Route::pattern('bar', '[0-9]+')</pre>
 Route::filter('auth', function(){});
 // Register a class as a filter
 Route::filter('foo', 'FooFilter');
-Route::get('foo', array('before' => 'auth', function(){}));
+Route::get('foo', ['before' => 'auth', function(){}]);
 // Routes in this group are guarded by the 'auth' filter
-Route::get('foo', array('before' => 'auth', function(){}));
-Route::group(array('before' => 'auth'), function(){});
+Route::get('foo', ['before' => 'auth', function(){}]);
+Route::group(['before' => 'auth'], function(){});
 // Pattern filter
 Route::when('foo/*', 'foo');
 // HTTP verb pattern
-Route::when('foo/*', 'foo', array('post'));</pre>
+Route::when('foo/*', 'foo', ['post']);</pre>
 
             <h6>Named Routes</h6>
             <pre class="prettyprint lang-php">Route::currentRouteName();
-Route::get('foo/bar', array('as' => 'foobar', function(){}));
-Route::get('foo/bar', array('as' => 'foobar', 'uses' => 'ControllerName@function'));</pre>
+Route::get('foo/bar', ['as' => 'foobar', function(){}]);
+Route::get('foo/bar', ['as' => 'foobar', 'uses' => 'ControllerName@function']);</pre>
 
             <h6>Route Prefixing</h6>
             <pre class="prettyprint lang-php">// This route group will carry the prefix 'foo'
-Route::group(array('prefix' => 'foo'), function(){})</pre>
+Route::group(['prefix' => 'foo'], function(){})</pre>
 
             <h6>Sub-Domain Routing</h6>
             <pre class="prettyprint lang-php">// {sub} will be passed to the closure
-Route::group(array('domain' => '{sub}.example.com'), function(){});</pre>
+Route::group(['domain' => '{sub}.example.com'], function(){});</pre>
         </div>
 
         <div>
@@ -148,13 +148,13 @@ URL::setGenerator($generator);</pre>
 
         <div>
             <h4><a name="events" href="#events">Events</a> <a href="http://laravel.com/docs/events" title="Events @ Laravel Docs"><i class="fa fa-file-text"></i></a></h4>
-            <pre class="prettyprint lang-php">Event::fire('foo.bar', array($bar));
+            <pre class="prettyprint lang-php">Event::fire('foo.bar', [$bar]);
 Event::listen('foo.bar', function($bar){});
 Event::listen('foo.*', function($bar){});
 Event::listen('foo.bar', 'FooHandler', 10);
 Event::listen('foo.bar', 'BarHandler', 5);
 Event::listen('foor.bar', function($event){ return false; });
-Event::queue('foo', array($bar));
+Event::queue('foo', [$bar]);
 Event::flusher('foo', function($bar){});
 Event::flush('foo');
 Event::forget('foo');
@@ -178,9 +178,9 @@ DB::raw('sql expression here');</pre>
 DB::table('name')->distinct()->get();
 DB::table('name')->select('column as column_alias')->get();
 DB::table('name')->where('name', '=', 'John')->get();
-DB::table('name')->whereBetween('column', array(1, 100))->get();
-DB::table('name')->whereIn('column', array(1, 2, 3))->get();
-DB::table('name')->whereNotIn('column', array(1, 2, 3))->get();
+DB::table('name')->whereBetween('column', [1, 100])->get();
+DB::table('name')->whereIn('column', [1, 2, 3])->get();
+DB::table('name')->whereNotIn('column', [1, 2, 3])->get();
 DB::table('name')->whereNull('column')->get();
 DB::table('name')->whereNotNull('column')->get();
 DB::table('name')->groupBy('column')->get();
@@ -197,16 +197,15 @@ DB::table('name')->join('table', 'name.id', '=', 'table.id')
 ->select('name.id', 'table.email');</pre>
 
             <h6>Inserts, Updates, Deletes</h6>
-            <pre class="prettyprint lang-php">DB::table('name')->insert(array('name' => 'John', 'email' => 'john@example.com'));
-DB::table('name')->insertGetId(array('name' => 'John', 'email' => 'john@example.com'));
+            <pre class="prettyprint lang-php">DB::table('name')->insert(['name' => 'John', 'email' => 'john@example.com']);
+DB::table('name')->insertGetId(['name' => 'John', 'email' => 'john@example.com']);
 // Batch insert
 DB::table('name')->insert(
-array('name' => 'John', 'email' => 'john@example.com')
-array('name' => 'James', 'email' => 'james@example.com')
+    ['name' => 'John', 'email' => 'john@example.com']
 );
 // Update an entry
 DB::table('name')->where('name', '=', 'John')
-->update(array('email' => 'john@example2.com'));
+->update(['email' => 'john@example2.com']);
 // Delete everything from a table
 DB::table('name')->delete();
 // Delete specific records
@@ -226,38 +225,38 @@ DB::table('name')->decrement('column', $amount);
 DB::table('name')->remember(5)->get();
 DB::table('name')->remember(5, 'cache-key-name')->get();
 DB::table('name')->cacheTags('my-key')->remember(5)->get();
-DB::table('name')->cacheTags(array('my-first-key','my-second-key'))->remember(5)->get();</pre>
+DB::table('name')->cacheTags(['my-first-key','my-second-key'])->remember(5)->get();</pre>
 
             <h6>Raw Expressions</h6>
-            <pre class="prettyprint lang-php">DB::select('select * from users where id = ?', array('value'));
+            <pre class="prettyprint lang-php">DB::select('select * from users where id = ?', ['value']);
 DB::table('name')->select(DB::raw('count(*) as count, column2'))->get();</pre>
         </div>
 
         <div>
             <h4><a name="eloquent" href="#eloquent">Eloquent</a> <a href="http://laravel.com/docs/eloquent" title="Eloquent @ Laravel Docs"><i class="fa fa-file-text"></i></a></h4>
-            <pre class="prettyprint lang-php">Model::create(array('key' => 'value'));
+            <pre class="prettyprint lang-php">Model::create(['key' => 'value']);
 // Fill a model with an array of attributes, beware of mass assignment!
 Model::fill($attributes);
 Model::destroy(1);
 Model::all();
 Model::find(1);
 // Find using dual primary key
-Model::find(array('first', 'last'));
+Model::find(['first', 'last']);
 // Throw an exception if the lookup fails
 Model::findOrFail(1);
 // Find using dual primary key and throw exception if the lookup fails
-Model::findOrFail(array('first', 'last'));
+Model::findOrFail(['first', 'last']);
 Model::where('foo', '=', 'bar')->get();
 Model::where('foo', '=', 'bar')->first();
 // Throw an exception if the lookup fails
 Model::where('foo', '=', 'bar')->firstOrFail();
 Model::where('foo', '=', 'bar')->count();
 Model::where('foo', '=', 'bar')->delete();
-Model::whereRaw('foo = bar and cars = 2', array(20))->get();
+Model::whereRaw('foo = bar and cars = 2', [20])->get();
 Model::remember(5)->get();
 Model::remember(5, 'cache-key-name')->get();
 Model::cacheTags('my-tag')->remember(5)->get();
-Model::cacheTags(array('my-first-key','my-second-key'))->remember(5)->get();
+Model::cacheTags(['my-first-key', 'my-second-key'])->remember(5)->get();
 Model::on('connection-name')->find(1);
 Model::with('relation')->get();
 Model::all()->take(10);
@@ -341,17 +340,17 @@ $table->string('name')->after('email');</pre>
 $table->string('column')->unique();
 $table->primary('column');
 // Creates a dual primary key
-$table->primary(array('first', 'last'));
+$table->primary(['first', 'last']);
 $table->unique('column');
 $table->unique('column', 'key_name');
 // Creates a dual unique index
-$table->unique(array('first', 'last'));
-$table->unique(array('first', 'last'), 'key_name');
+$table->unique(['first', 'last']);
+$table->unique(['first', 'last'], 'key_name');
 $table->index('column');
 $table->index('column', 'key_name');
 // Creates a dual index
-$table->index(array('first', 'last'));
-$table->index(array('first', 'last'), 'key_name');
+$table->index(['first', 'last']);
+$table->index(['first', 'last'], 'key_name');
 $table->dropPrimary('table_column_primary');
 $table->dropUnique('table_column_unique');
 $table->dropIndex('table_column_index');</pre>
@@ -389,7 +388,7 @@ $table->boolean('confirmed');
 // Adds 'deleted_at' column for soft deletes
 $table->softDeletes();
 $table->binary('data');
-$table->enum('choices', array('foo', 'bar'));
+$table->enum('choices', ['foo', 'bar']);
 // Adds INTEGER 'parent_id' and STRING 'parent_type'
 $table->morphs('parent');
 ->nullable()
@@ -487,7 +486,7 @@ Session::flush();
 Session::regenerate();
 Session::flash('key', 'value');
 Session::reflash();
-Session::keep(array('key1', 'key2'));</pre>
+Session::keep(['key1', 'key2']);</pre>
         </div>
 
         <div>
@@ -506,8 +505,8 @@ Request::secure();</pre>
             <h4><a name="responses" href="#responses">Responses</a> <a href="http://laravel.com/docs/responses" title="Responses @ Laravel Docs"><i class="fa fa-file-text"></i></a></h4>
             <pre class="prettyprint lang-php">return Response::make($contents);
 return Response::make($contents, 200);
-return Response::json(array('key' => 'value'));
-return Response::json(array('key' => 'value'))
+return Response::json(['key' => 'value']);
+return Response::json(['key' => 'value'])
     ->setCallback(Input::get('callback'));
 return Response::download($filepath);
 return Response::download($filepath, $filename, $headers);
@@ -529,11 +528,11 @@ return Redirect::to('foo/bar')->withInput(Input::except('password'));
 return Redirect::to('foo/bar')->withErrors($validator);
 return Redirect::back();
 return Redirect::route('foobar');
-return Redirect::route('foobar', array('value'));
-return Redirect::route('foobar', array('key' => 'value'));
+return Redirect::route('foobar', ['value']);
+return Redirect::route('foobar', ['key' => 'value']);
 return Redirect::action('FooController@index');
-return Redirect::action('FooController@baz', array('value'));
-return Redirect::action('FooController@baz', array('key' => 'value'));
+return Redirect::action('FooController@baz', ['value']);
+return Redirect::action('FooController@baz', ['key' => 'value']);
 // If intended redirect is not defined, defaults to foo/bar.
 return Redirect::intended('foo/bar');</pre>
         </div>
@@ -563,7 +562,7 @@ Hash::needsRehash($hashedPassword);</pre>
             <pre class="prettyprint lang-php">// Check if the user is logged in
 Auth::check();
 Auth::user();
-Auth::attempt(array('email' => $email, 'password' => $password));
+Auth::attempt(['email' => $email, 'password' => $password]);
 // 'Remember me' by passing true to Auth::attempt()
 Auth::attempt($credentials, true);
 // Log in for a single request
@@ -586,7 +585,7 @@ Crypt::setCipher($cipher);</pre>
         <div>
             <h4><a name="mail" href="#mail">Mail</a> <a href="http://laravel.com/docs/mail" title="Mail @ Laravel Docs"><i class="fa fa-file-text"></i></a></h4>
             <pre class="prettyprint lang-php">Mail::send('email.view', $data, function($message){});
-Mail::send(array('html.view', 'text.view'), $data, $callback);
+Mail::send(['html.view', 'text.view'], $data, $callback);
 Mail::queue('email.view', $data, function($message){});
 Mail::queueOn('queue-name', 'email.view', $data, $callback);
 Mail::later(5, 'email.view', $data, function($message){});
@@ -616,8 +615,8 @@ $message->getSwiftMessage();</pre>
 
         <div>
             <h4><a name="queues" href="#queues">Queues</a> <a href="http://laravel.com/docs/queues" title="Queues @ Laravel Docs"><i class="fa fa-file-text"></i></a></h4>
-            <pre class="prettyprint lang-php">Queue::push('SendMail', array('message' => $message));
-Queue::push('SendEmail@send', array('message' => $message));
+            <pre class="prettyprint lang-php">Queue::push('SendMail', ['message' => $message]);
+Queue::push('SendEmail@send', ['message' => $message]);
 Queue::push(function($job) use $id {});
 php artisan queue:listen
 php artisan queue:listen connection
@@ -628,8 +627,8 @@ php artisan queue:work</pre>
         <div>
             <h4><a name="validation" href="#validation">Validation</a> <a href="http://laravel.com/docs/validation" title="Validation @ Laravel Docs"><i class="fa fa-file-text"></i></a></h4>
             <pre class="prettyprint lang-php">Validator::make(
-    array('key' => 'Foo'),
-    array('key' => 'required|in:Foo')
+    ['key' => 'Foo'],
+    ['key' => 'required|in:Foo']
 );
 Validator::extend('foo', function($attribute, $value, $params){});
 Validator::extend('foo', 'FooValidator@validate');
@@ -678,7 +677,7 @@ url</pre>
             <pre class="prettyprint lang-php">View::make('path/to/view');
 View::make('foo/bar')->with('key', 'value');
 View::make('foo/bar')->withKey('value');
-View::make('foo/bar', array('key' => 'value'));
+View::make('foo/bar', ['key' => 'value']);
 View::exists('foo/bar');
 // Share a value across all views
 View::share('key', 'value');
@@ -687,7 +686,7 @@ View::make('foo/bar')->nest('name', 'foo/baz', $data);
 // Register a view composer
 View::composer('viewname', function($view){});
 // Register multiple views to a composer
-View::composer(array('view1', 'view2'), function($view){});
+View::composer(['view1', 'view2'], function($view){});
 // Register a composer class
 View::composer('viewname', 'FooComposer');
 View::creator('viewname', function($view){});</pre>
@@ -708,7 +707,7 @@ View::creator('viewname', function($view){});</pre>
 // Show a section in a template
 @yield('name')
 @include('view.name')
-@include('view.name', array('key' => 'value'));
+@include('view.name', ['key' => 'value']);
 @lang('messages.name')
 @choice('messages.name', 1);
 @if
@@ -736,38 +735,38 @@ View::creator('viewname', function($view){});</pre>
 
         <div>
             <h4><a name="forms" href="#forms">Forms</a> <a href="http://laravel.com/docs/html" title="Forms & HTML @ Laravel Docs"><i class="fa fa-file-text"></i></a></h4>
-            <pre class="prettyprint lang-php">Form::open(array('url' => 'foo/bar', 'method' => 'PUT'));
-Form::open(array('route' => 'foo.bar'));
-Form::open(array('route' => array('foo.bar', $parameter)));
-Form::open(array('action' => 'FooController@method'));
-Form::open(array('action' => array('FooController@method', $parameter)));
-Form::open(array('url' => 'foo/bar', 'files' => true));
+            <pre class="prettyprint lang-php">Form::open(['url' => 'foo/bar', 'method' => 'PUT']);
+Form::open(['route' => 'foo.bar']);
+Form::open(['route' => ['foo.bar', $parameter]]);
+Form::open(['action' => 'FooController@method']);
+Form::open(['action' => ['FooController@method', $parameter]]);
+Form::open(['url' => 'foo/bar', 'files' => true));
 Form::close();
 Form::token();
-Form::model($foo, array('route' => array('foo.bar', $foo->bar)));</pre>
+Form::model($foo, ['route' => ['foo.bar', $foo->bar]]);</pre>
 
             <h6>Form Elements</h6>
             <pre class="prettyprint lang-php">Form::label('id', 'Description');
-Form::label('id', 'Description', array('class' => 'foo'));
+Form::label('id', 'Description', ['class' => 'foo']);
 Form::text('name');
 Form::text('name', $value);
-Form::text('name', $value, array('class' => 'name'));
+Form::text('name', $value, ['class' => 'name']);
 Form::textarea('name');
 Form::textarea('name', $value);
-Form::textarea('name', $value, array('class' => 'name'));
+Form::textarea('name', $value, ['class' => 'name']);
 Form::hidden('foo', $value);
 Form::password('password');
-Form::password('password', array('placeholder' => 'Password'));
-Form::email('name', $value, array());
-Form::file('name', array('class' => 'name'));
+Form::password('password', ['placeholder' => 'Password']);
+Form::email('name', $value, []);
+Form::file('name', ['class' => 'name']);
 Form::checkbox('name', 'value');
 // Generating a checkbox that is checked
-Form::checkbox('name', 'value', true, array('class' => 'name'));
+Form::checkbox('name', 'value', true, ['class' => 'name']);
 Form::radio('name', 'value');
 // Generating a radio input that is selected
-Form::radio('name', 'value', true, array('class' => 'name'));
-Form::select('name', array('key' => 'value'));
-Form::select('name', array('key' => 'value'), 'key', array('class' => 'name'));
+Form::radio('name', 'value', true, ['class' => 'name']);
+Form::select('name', ['key' => 'value']);
+Form::select('name', ['key' => 'value'], 'key', ['class' => 'name']);
 Form::submit('Submit!');
 Form::macro('fooField', function()
 {
@@ -836,7 +835,7 @@ Str::macro($name, $macro)</pre>
             <h4><a name="localization" href="#localization">Localization</a> <a href="http://laravel.com/docs/localization" title="Localization @ Laravel Docs"><i class="fa fa-file-text"></i></a></h4>
             <pre class="prettyprint lang-php">App::setLocale('en');
 Lang::get('messages.welcome');
-Lang::get('messages.welcome', array('foo' => 'Bar'));
+Lang::get('messages.welcome', ['foo' => 'Bar']);
 Lang::has('messages.welcome');
 Lang::choice('messages.apples', 10);</pre>
         </div>
@@ -881,7 +880,7 @@ File::cleanDirectory('directory');</pre>
 array_build($array, function(){});
 array_divide($array);
 array_dot($array);
-array_except($array, array('key'));
+array_except($array, ['key']);
 array_fetch($array, 'key');
 array_first($array, function($key, $value){}, $default);
 // Strips keys from the array
@@ -891,7 +890,7 @@ array_forget($array, 'foo');
 array_forget($array, 'foo.bar');
 array_get($array, 'foo', 'default');
 array_get($array, 'foo.bar', 'default');
-array_only($array, array('key'));
+array_only($array, ['key']);
 // Return array of key => values
 array_pluck($array, 'key');
 // Return and remove 'key' from array
@@ -945,7 +944,7 @@ asset('img/photo.jpg', $title, $attributes);
 secure_asset('img/photo.jpg', $title, $attributes);
 secure_url('path', $parameters);
 route($route, $parameters, $absolute = true);
-url('path', $parameters = array(), $secure = null);</pre>
+url('path', $parameters = [], $secure = null);</pre>
 
             <h6>Miscellaneous</h6>
             <pre class="prettyprint lang-php">
