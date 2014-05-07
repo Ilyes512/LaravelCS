@@ -244,7 +244,13 @@ Model::remember($min, 'cache-key-name')->get();
 Model::cacheTags('my-tag')->remember($min)->get();
 Model::cacheTags(['my-first-key', 'my-second-key'])->remember($min)->get();
 Model::on('connection-name')->find($id);
-Model::with('relation')->get();</pre>
+Model::with('relation')->get();
+// Adding a scope to a model
+public function scopeTriplePeriod($query)
+{
+    return $query->where('title', 'LIKE', '...%');
+}
+Model::triplePeriod()->get();</pre>
 
             <h6>Fetch methods</h6>
             <pre class="prettyprint lang-php">// Retrieve row based on id
@@ -282,7 +288,7 @@ Model::whereRaw('column = ?', ['value']);
 Model::whereBetween('year', [2005, 2012])->get();
 Model::whereIn('column', ['value1', 'value2'])->get();
 Model::whereNull('column')->get();
-// Direction's: 'asc' or 'desc'
+// Direction: 'asc' or 'desc'
 Model::orderBy('column', $direction = 'asc')->get();
 Model::take(10)->get();
 Model::skip(5)->get();
@@ -295,6 +301,10 @@ Model::orWhere(function($query){
     $query->where(...);
     $query->orWhere(...);
 })->get();
+// The below three methods return the same
+Model::where('column', '=', 'value')->get();
+Model::where('column', 'value')->get();
+Model::whereColumn('value')->get();
 </pre>
 
             <h6>Soft Delete</h6>
